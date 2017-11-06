@@ -8,3 +8,6 @@ picard-tools/2.14
 gatk/3.7
 hg19 and db138 resource bundle from GATK best practices pipeline
 
+# ONLY TO BE USED ON A SUN GRID ENGINE JOB SUBMISSION CLUSTER
+
+
