@@ -21,7 +21,7 @@ def qsub_o(str_o, java_func, command):
 						+'#$ -N exo_'+str_o+'_'+str(java_func)+'\n'
 						+'#$ -l h_vmem=16G'+'\n'
 						+'#$ -l h_rt=6:00:00'+'\n'
-						+'#$ -hold_jid exo_'+ str_o+'_'+str(int(java_func)-1)+'\n'
+						+'#$ -hold_jid exo_'+ str_o+'_'+str(int(java_func)-1)+'\n' ### job on hold until previous one is done
 						+'module load gatk/3.7'+'\n'
 						+'module load picard-tools/2.8.0'+'\n'
 						+'picard="picard.jar"'+'\n'
@@ -29,7 +29,7 @@ def qsub_o(str_o, java_func, command):
 						+str(command)+'\n')
 				f_o.close()
 		subprocess.Popen('chmod 777 ex'+str_o+'_'+str(java_func)+'.sh', shell=True)
-		#subprocess.Popen('qsub -V -cwd ex'+str_o+'_'+str(java_func)+'.sh', shell=True)
+		subprocess.Popen('qsub -V -cwd ex'+str_o+'_'+str(java_func)+'.sh', shell=True)
 
 def main(file_in):
 	fileID=file_in.split('_')[0]
