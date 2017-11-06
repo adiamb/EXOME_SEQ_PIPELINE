@@ -12,7 +12,7 @@ def qsub_o(str_o, java_func, command):
 						+'#$ -l h_rt=6:00:00'+'\n'
 						+'module load gatk/3.7'+'\n'
 						+'module load picard-tools/2.8.0'+'\n'
-						+'picard="/srv/gsfs0/software/picard-tools/2.8.0/picard.jar"'+'\n'
+						+'picard="picard.jar"'+'\n'
 						+'gatk="/srv/gsfs0/software/gatk/gatk-3.7/GenomeAnalysisTK.jar"'+'\n' 
 						+str(command)+'\n')
 				f_o.close()
@@ -24,7 +24,7 @@ def qsub_o(str_o, java_func, command):
 						+'#$ -hold_jid exo_'+ str_o+'_'+str(int(java_func)-1)+'\n'
 						+'module load gatk/3.7'+'\n'
 						+'module load picard-tools/2.8.0'+'\n'
-						+'picard="/srv/gsfs0/software/picard-tools/2.8.0/picard.jar"'+'\n'
+						+'picard="picard.jar"'+'\n'
 						+'gatk="/srv/gsfs0/software/gatk/gatk-3.7/GenomeAnalysisTK.jar"'+'\n'
 						+str(command)+'\n')
 				f_o.close()
