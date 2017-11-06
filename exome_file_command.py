@@ -49,6 +49,5 @@ def main(file_in):
 	qsub_o(fileID, str(7), haplocall)
 
 
-if __name__ == '__main__':
-		main()
+if __name__ == '__main__':main(file_in)
 						
