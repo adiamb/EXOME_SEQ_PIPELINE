@@ -10,7 +10,7 @@ $python exome_file_command.py XXXXX_merged.bam (this pipeline accepts only BWA a
 4. Build the bam index of dedup bam - picard function is BuildBamIndex
 5. Base Recalibration of the dedup bam file - GATK function is BaseRecalibrator
 6. Output the calibrated reads - GATK function is PrintReads
-7. call the genotypes directly or to g.vcf file if many samples - GATK function is HaplotypeCaller
+7. call the genotypes directly or to g.vcf file if many >30 samples - GATK function is HaplotypeCaller
 
 Dependancies required
 picard-tools/2.14
