@@ -11,6 +11,8 @@ $python exome_file_command.py XXXXX_merged.bam (this pipeline accepts only BWA a
 5. Base Recalibration of the dedup bam file - GATK function is BaseRecalibrator
 6. Output the calibrated reads - GATK function is PrintReads
 7. call the genotypes directly or to g.vcf file if many >30 samples - GATK function is HaplotypeCaller
+8. use scripts VQSR_S1 to VQSR_S4 for variant filtration using GATK bext practices
+9. Perform Variant evaluation - expected Ti/Tv ratio for whole exome - 3 to 3.3
 
 Dependancies required
 picard-tools/2.14
