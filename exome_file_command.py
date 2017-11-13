@@ -30,14 +30,14 @@ def qsub_o(str_o, java_func, command):
 
 def main(file_in):
         fileID=file_in.split('_')[0]
-        #sortsam='java -jar picard.jar SortSam I='+fileID+'_merged.bam O='+fileID+'_SORTED.bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=LENIENT'
-        #qsub_o(fileID, str(1), sortsam)
-        #reordersam='java -jar picard.jar ReorderSam I='+fileID+'_SORTED.bam '+'O='+fileID+'_SORTED_REORD.bam R=ucsc.hg19.fasta VALIDATION_STRINGENCY=LENIENT'
-        #qsub_o(fileID, str(2), reordersam)
-        #markdup='java -jar picard.jar MarkDuplicates I='+fileID+'_SORTED_REORD.bam O='+fileID+'_SORTED_REORD_DEDUP.bam M='+fileID+'_metrics.txt REMOVE_DUPLICATES=TRUE VALIDATION_STRINGENCY=LENIENT'
-        #qsub_o(fileID, str(3), markdup)
-        #bbindex='java -jar picard.jar BuildBamIndex I='+fileID+'_SORTED_REORD_DEDUP.bam VALIDATION_STRINGENCY=LENIENT'
-        #qsub_o(fileID, str(4), bbindex)
+        sortsam='java -jar picard.jar SortSam I='+fileID+'_merged.bam O='+fileID+'_SORTED.bam SORT_ORDER=coordinate VALIDATION_STRINGENCY=LENIENT'
+        qsub_o(fileID, str(1), sortsam)
+        reordersam='java -jar picard.jar ReorderSam I='+fileID+'_SORTED.bam '+'O='+fileID+'_SORTED_REORD.bam R=ucsc.hg19.fasta VALIDATION_STRINGENCY=LENIENT'
+        qsub_o(fileID, str(2), reordersam)
+        markdup='java -jar picard.jar MarkDuplicates I='+fileID+'_SORTED_REORD.bam O='+fileID+'_SORTED_REORD_DEDUP.bam M='+fileID+'_metrics.txt REMOVE_DUPLICATES=TRUE VALIDATION_STRINGENCY=LENIENT'
+        qsub_o(fileID, str(3), markdup)
+        bbindex='java -jar picard.jar BuildBamIndex I='+fileID+'_SORTED_REORD_DEDUP.bam VALIDATION_STRINGENCY=LENIENT'
+        qsub_o(fileID, str(4), bbindex)
         basecal='java -jar $gatk -T BaseRecalibrator -R ucsc.hg19.fasta -L Exome_Agilent_V4.bed -I '+fileID+'_SORTED_REORD_DEDUP.bam -knownSites dbsnp_138.hg19.vcf -knownSites Mills_and_1000G_gold_standard.indels.hg19.sites.vcf -nct 4 -o '+fileID+'_RECAL.table'
         qsub_o(fileID, str(5), basecal)
         printreads='java -jar $gatk -T PrintReads -R ucsc.hg19.fasta -I '+fileID+'_SORTED_REORD_DEDUP.bam -BQSR '+fileID+'_RECAL.table -nct 4 -o '+fileID+'_RECAL_READS.bam'
