@@ -1,4 +1,4 @@
-# EXOME_SEQ_PIPELINE
+# EXOME Sequencing pipeline - germline only 
 Python based command execution of exome sequencing analysis on the stanford genomics cluster
 input example :
 $python exome_file_command.py XXXXX_merged.bam (this pipeline accepts only BWA aligned bam file)
