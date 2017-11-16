@@ -19,6 +19,6 @@ picard-tools/2.14
 gatk/3.7
 hg19.fasta, Mills_and_1000G_gold_standard.indels.hg19.sites.vcf, db138 resource bundle from GATK best practices pipeline
 
-# ONLY TO BE USED ON A SUN GRID ENGINE JOB SUBMISSION CLUSTER with QSUB
+ONLY TO BE USED ON A SUN GRID ENGINE JOB SUBMISSION CLUSTER with QSUB
 
 
